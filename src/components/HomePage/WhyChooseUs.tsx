@@ -52,9 +52,9 @@ const WhyChooseUs = () => {
             </div>
 
             <div className="relative min-h-125 lg:min-h-150">
-              <div className="absolute bottom-0 right-0 w-full h-[55%] bg-[#fac4d2] rounded-full z-0"></div>
+              <div className="absolute bottom-0 right-0 w-full h-[50%] md:h-[55%] bg-[#fac4d2] rounded-full z-0"></div>
 
-              <div className="absolute bottom-0 right-10 w-[320px] lg:w-105 z-10">
+              <div className="absolute bottom-0 right-10 md:w-[320px] lg:w-105 z-10">
                 <Image
                   src={manImage}
                   alt="Smiling office worker"
@@ -62,31 +62,31 @@ const WhyChooseUs = () => {
                 />
               </div>
 
-              <div className="absolute top-60 left-0 lg:-left-10 z-20">
+              <div className="absolute top-60  -left-10 md:top-60  md:left-0 lg:-left-10 md:z-20">
                 <Image
                   src={leftTop}
                   height={150}
                   width={200}
                   alt="Property listing"
-                  className="object-contain w-fit"
+                  className="md:object-contain w-40 md:w-fit"
                 />
               </div>
 
-              <div className="absolute top-45 right-0 lg:-right-10 z-20">
+              <div className="absolute top-52 md:top-45 left-50 md:left-80 md:right-0 lg:-right-10 z-20">
                 <Image
                   src={rightTop}
                   height={150}
-                    width={200}
+                  width={200}
                   alt="Brand logos"
-                  className="object-contain w-fit"
+                  className="md:object-contain w-40  md:w-fit"
                 />
               </div>
 
-              <div className="absolute -bottom-20 right-0 lg:-left-30 z-0">
+              <div className="absolute -bottom-8 md:-bottom-20 md:right-0 -left-8  lg:-left-30 z-0">
                 <Image
                   src={calender}
                   alt="Calendar"
-                  className="object-contain w-fit"
+                  className="md:object-contain w-40 md:w-fit"
                 />
               </div>
             </div>
