@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
 import m1 from "../../assets/Vector.png";
