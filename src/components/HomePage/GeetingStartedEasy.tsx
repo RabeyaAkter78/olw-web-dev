@@ -25,8 +25,8 @@ const steps = [
 
 const GeetingStartedEasy = () => {
   return (
-    <section className="w-full py-16 lg:py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 font-dmSans">
+    <section className="w-full py-16 lg:py-24 bg-white px-4 md:px-0">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 font-dmSans ">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-gray-900 mb-4">
             Getting Started is <span className="text-[#ed3c6a]">Easy</span>

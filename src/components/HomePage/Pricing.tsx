@@ -103,7 +103,7 @@ const Pricing = () => {
             </div>
             {/* Arrow and Save badge - positioned to curve from Pay Yearly to Save 25% */}
           </div>
-          <div className="absolute top-20 right-60 transform -translate-x-1/2 flex items-center mt-2">
+          <div className="absolute top-40 md:top-20 -right-16 md:right-60 transform -translate-x-1/2 flex items-center mt-2">
             <Image
               src={icon}
               alt="Arrow Icon"

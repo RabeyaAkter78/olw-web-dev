@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OLW Web Development
+
+A modern Next.js landing page with responsive design and Ant Design components.
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router)
+- **Styling:** TailwindCSS v4
+- **UI Library:** Ant Design v6
+- **Icons:** React Icons, Ant Design Icons
+- **Animation:** React Fast Marquee
+
+## Project Structure
+
+```
+src/
+├── app/                    # Next.js app router pages
+│   ├── (auth)/            # Auth routes group
+│   ├── about/             # About page
+│   ├── blog/              # Blog page
+│   ├── pricing/           # Pricing page
+│   ├── resources/         # Resources page
+│   ├── services/          # Services page
+│   ├── layout.tsx         # Root layout
+│   ├── page.tsx           # Home page
+│   └── globals.css        # Global styles
+├── components/
+│   ├── HomePage/          # Home page sections
+│   │   ├── Faq.tsx        # FAQ accordion
+│   │   ├── Hero.tsx       # Hero section
+│   │   ├── Navbar.tsx     # Navigation with drawer
+│   │   ├── Pricing.tsx    # Pricing cards
+│   │   ├── Review.tsx     # Customer reviews
+│   │   └── ...
+│   └── Shared/            # Shared components
+│       ├── Navbar.tsx
+│       └── Footer.tsx
+└── assets/                # Images and static files
+```
+
+## Home Page Sections
+
+1. **Hero** - Main banner with CTA
+2. **Marquee** - Logo ticker
+3. **Our Service** - Service cards
+4. **Pricing** - Pricing plans
+5. **Tools** - Tools showcase
+6. **Getting Started** - Easy steps
+7. **Why Choose Us** - Feature highlights
+8. **Review** - Customer testimonials
+9. **FAQ** - Accordion questions
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Open http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Available Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Key Features
 
-## Learn More
+- **Responsive Navbar** - Desktop nav + mobile drawer (Ant Design)
+- **FAQ Accordion** - Expandable/collapsible questions
+- **Pricing Cards** - Feature comparison tables
+- **Marquee Animation** - Infinite logo scroll
+- **Footer** - Multi-column links with social icons
 
-To learn more about Next.js, take a look at the following resources:
+## Styling Notes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Primary color: `#ed3c6a` (pink/coral)
+- CSS variables defined in `globals.css`
+- Tailwind `container` class for responsive width
+- Ant Design components styled with Tailwind
