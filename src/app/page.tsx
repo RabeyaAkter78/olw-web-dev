@@ -1,7 +1,7 @@
 import Faq from "@/components/HomePage/Faq";
 import GeetingStartedEasy from "@/components/HomePage/GeetingStartedEasy";
 import Hero from "@/components/HomePage/Hero";
-import Marquee from "@/components/HomePage/Marquee";
+import MarqueeComponent from "@/components/HomePage/MarqueeComponent";
 import OurService from "@/components/HomePage/OurService";
 import Pricing from "@/components/HomePage/Pricing";
 import Review from "@/components/HomePage/Review";
@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <main>
       <Hero></Hero>
-      <Marquee></Marquee>
+      <MarqueeComponent></MarqueeComponent>
       <OurService></OurService>
       <Pricing></Pricing>
       <Tools></Tools>
