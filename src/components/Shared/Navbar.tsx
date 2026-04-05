@@ -3,7 +3,13 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Button } from "antd";
-import { ArrowRightOutlined, MenuOutlined, CloseOutlined } from "@ant-design/icons";
+import {
+  ArrowRightOutlined,
+  MenuOutlined,
+  CloseOutlined,
+} from "@ant-design/icons";
+import logo from "../../assets/Google-Logo.wine 1.png";
+import Image from "next/image";
 
 const navLinks = [
   { name: "Home", href: "/", active: true },
@@ -23,12 +29,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <span className="text-xl lg:text-2xl font-bold text-[#ed3c6a]">
-              Airbnb
-            </span>
-            <span className="text-xl lg:text-2xl font-bold text-[#1a1a1a]">
-              Assistants
-            </span>
+            <Image src={logo} alt="Logo" className=" object-contain" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -69,7 +70,11 @@ const Navbar = () => {
             className="lg:hidden p-2 text-[#1a1a1a] hover:text-[#ed3c6a] transition-colors"
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <CloseOutlined className="text-2xl" /> : <MenuOutlined className="text-2xl" />}
+            {mobileMenuOpen ? (
+              <CloseOutlined className="text-2xl" />
+            ) : (
+              <MenuOutlined className="text-2xl" />
+            )}
           </button>
         </div>
 
