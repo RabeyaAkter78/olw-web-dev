@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono , DM_Sans} from "next/font/google";
+import { Geist, Geist_Mono, DM_Sans } from "next/font/google";
 import "./globals.css";
-import { AntdRegistry } from '@ant-design/nextjs-registry';
+import { AntdRegistry } from "@ant-design/nextjs-registry";
+import Navbar from "@/components/Shared/Navbar";
+import Footer from "@/components/Shared/Footer";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -32,7 +34,11 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${dmSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">      <AntdRegistry>{children}</AntdRegistry></body>
+      <body className="min-h-full flex flex-col">
+        <Navbar />
+        <AntdRegistry>{children}</AntdRegistry>
+        <Footer />
+      </body>
     </html>
   );
 }
