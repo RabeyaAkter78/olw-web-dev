@@ -2,37 +2,39 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Button } from "antd";
-import {
-  ArrowRightOutlined,
-  MenuOutlined,
-  CloseOutlined,
-} from "@ant-design/icons";
+import { Button, Drawer } from "antd";
+import { ArrowRightOutlined, MenuOutlined } from "@ant-design/icons";
 import logo from "../../assets/Google-Logo.wine 1.png";
 import Image from "next/image";
 
 const navLinks = [
-  { name: "Home", href: "/", active: true },
+  { name: "Home", href: "/", active: true},
   { name: "About", href: "/about", active: false },
-  { name: "Services", href: "/services", active: false, bordered: true },
+  { name: "Services", href: "/services", active: false,  },
   { name: "Pricing", href: "/pricing", active: false },
   { name: "Blog", href: "/blog", active: false },
   { name: "Resources", href: "/resources", active: false },
 ];
 
 const Navbar = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const showDrawer = () => {
+    setDrawerOpen(true);
+  };
+
+  const closeDrawer = () => {
+    setDrawerOpen(false);
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white border-b border-[#f0f0f0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <Image src={logo} alt="Logo" className=" object-contain" />
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
@@ -42,10 +44,10 @@ const Navbar = () => {
                   px-4 py-2 text-sm font-medium transition-colors duration-200
                   ${
                     link.active
-                      ? "text-[#ed3c6a]"
+                      ? "text-[#ed3c6a] border-b-2 border-[#ed3c6a]"
                       : "text-[#1a1a1a] hover:text-[#ed3c6a]"
                   }
-                  ${link.bordered ? "border border-[#e5e7eb] rounded" : ""}
+                 
                 `}
               >
                 {link.name}
@@ -55,63 +57,65 @@ const Navbar = () => {
 
           {/* CTA Button - Desktop */}
           <div className="hidden lg:block">
-            <Button
-              type="primary"
-              className="!bg-[#ed3c6a] !border-[#ed3c6a] hover:!bg-[#d9355f] hover:!border-[#d9355f] !text-white !font-medium !px-6 !h-11 !rounded-lg flex items-center gap-2"
-            >
+            <button className="px-6 py-3 bg-[#ed3c6a] hover:bg-[#ed4c67f6] text-white rounded-md flex items-center gap-2 text-base shadow-md">
               Schedule A Meeting
               <ArrowRightOutlined />
-            </Button>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            onClick={showDrawer}
             className="lg:hidden p-2 text-[#1a1a1a] hover:text-[#ed3c6a] transition-colors"
-            aria-label="Toggle menu"
+            aria-label="Open menu"
           >
-            {mobileMenuOpen ? (
-              <CloseOutlined className="text-2xl" />
-            ) : (
-              <MenuOutlined className="text-2xl" />
-            )}
+            <MenuOutlined className="text-2xl" />
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-[#f0f0f0]">
-            <nav className="flex flex-col gap-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`
-                    px-4 py-3 text-sm font-medium transition-colors duration-200 rounded-lg
-                    ${
-                      link.active
-                        ? "text-[#ed3c6a] bg-[#fef2f4]"
-                        : "text-[#1a1a1a] hover:text-[#ed3c6a] hover:bg-[#fef2f4]"
-                    }
-                    ${link.bordered ? "border border-[#e5e7eb]" : ""}
-                  `}
-                >
-                  {link.name}
-                </Link>
-              ))}
-              <div className="pt-4 px-4">
-                <Button
-                  type="primary"
-                  className="!bg-[#ed3c6a] !border-[#ed3c6a] hover:!bg-[#d9355f] hover:!border-[#d9355f] !text-white !font-medium !w-full !h-11 !rounded-lg flex items-center justify-center gap-2"
-                >
-                  Schedule A Meeting
-                  <ArrowRightOutlined />
-                </Button>
-              </div>
-            </nav>
-          </div>
-        )}
+        {/* Ant Design Drawer for Mobile Navigation */}
+        <Drawer
+          title={
+            <Link href="/" className="flex items-center" onClick={closeDrawer}>
+              <Image src={logo} alt="Logo" width={100} height={32} />
+            </Link>
+          }
+          placement="right"
+          onClose={closeDrawer}
+          open={drawerOpen}
+          width={300}
+          styles={{
+            header: { borderBottom: "1px solid #f0f0f0" },
+            body: { padding: "16px" },
+          }}
+        >
+          <nav className="flex flex-col gap-2">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={closeDrawer}
+                className={`
+                  px-4 py-3 text-sm font-medium transition-colors duration-200 rounded-lg
+                  ${
+                    link.active
+                      ? "text-[#ed3c6a] bg-[#fef2f4] "
+                      : "text-[#1a1a1a] hover:text-[#ed3c6a] hover:bg-[#fef2f4]"
+                  }
+                 
+                `}
+              >
+                {link.name}
+              </Link>
+            ))}
+            <div className="pt-4">
+              <button className="px-6 py-3 bg-[#ed3c6a] hover:bg-[#ed4c67f6] text-white rounded-md flex items-center gap-2 text-base shadow-md">
+                Schedule A Meeting
+                <ArrowRightOutlined />
+              </button>
+            </div>
+          </nav>
+        </Drawer>
       </div>
     </header>
   );
