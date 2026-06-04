@@ -1,18 +1,15 @@
 name: CI/CD Workflow
 
 on:
-    push:
+  push:
 
 jobs:
-    olw-web-job:
-      runs-on: windows-latest
+  olw-web-job:
+    runs-on: windows-latest
 
-      steps:
-        - name: Print a Message
-          run: echo "Hello from my first GitHub message."
-          
-        - name: Check Linting
-          run:  echo"Linting Checking..."
-        
-      
+    steps:
+      - name: Print a Message
+        run: echo "Hello from my first GitHub message."
 
+      - name: Check Linting
+        run: echo "Linting Checking..."
