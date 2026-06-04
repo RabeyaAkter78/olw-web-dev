@@ -11,6 +11,7 @@ A modern Next.js landing page with responsive design and Ant Design components.
 - **UI Library:** Ant Design v6
 - **Icons:** React Icons, Ant Design Icons
 - **Animation:** React Fast Marquee
+- **CI/CD**
 
 ## Project Structure
 
