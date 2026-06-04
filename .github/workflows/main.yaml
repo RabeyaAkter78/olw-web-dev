@@ -8,11 +8,10 @@ jobs:
 
       steps:
         - name: Print a Message
-        run: echo "Hello from my first GitHub message."
+          run: echo "Hello from my first GitHub message."
 
         -name: Check Linting
-        run:  echo"Linting Checking..."
+         run:  echo"Linting Checking..."
         
       
 
-      
